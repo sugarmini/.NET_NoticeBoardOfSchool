@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑"
+}
+
+.wrapper img {
+    width: 50px;
+    height: 50px;
+    float: right;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+a{
+    text-decoration: none;
+    color: #0a8e6c;
+}
+table a:hover{
+    text-decoration: underline;
+}
+li{
+    list-style-type: none;
+}
+body{
+    background: url("/Image/leaf.jpg") no-repeat;
+    background-size: cover;
+}
+.wrapper{
+    width: 1100px;
+    height: 100%;
+    margin: 0 auto;
+}
+.group{
+    height: 50px;
+    line-height: 50px;
+    margin: 20px 0;
+}
+.group li{
+    width: 65px;
+    float: left;
+    margin-left: 15px;
+    border-bottom:3px solid #fff;
+}
+.group li:hover{
+    border-bottom:3px solid #0a8e6c;
+}
+.button{
+    width: 105px;
+    height: 30px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    background: #0a8e6c;
+    color: #fff;
+    margin-top: 20px;
+}
+.button:hover{
+    opacity: 0.8;
+}
+.clear{
+    clear: both;
+}
+.content{
+    margin-top: 20px;
+}
+.content table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: none;
+}
+.content table th,td{
+    position: relative;
+    padding: 9px 15px;
+    min-height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    border: 1px solid #e2e2e2;
+}
+.content thead{
+    background: #eee;
+    opacity: 0.8;
+}
+.content tbody{
+    background: #fff;
+}
+#editor{
+    background: #fff;
+}
+.title span{
+    margin-right: 10px;
+}
+.title input{
+    height: 30px;
+    width: 500px;
+    text-indent: 2px;
+}
+.add-bulletin{
+    display:none;
+}
+.content .sort {
+    margin-top: 10px;
+}
+
+    .content .sort select {
+        width: 130px;
+        height: 34px;
+        line-height: 33px;
+        margin-bottom: 10px;
+        text-indent: 1em;
+        font-size: 14px;
+    }

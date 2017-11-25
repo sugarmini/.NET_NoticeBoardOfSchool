@@ -1,0 +1,112 @@
+﻿@model IEnumerable<xyggl.Models.Comment>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CommentManage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑"
+        }
+        .nav{
+            padding-left:50px;
+            padding-top:20px;
+        }
+        a {
+            text-decoration: none;
+            color: #0a8e6c;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        body {
+            background: url("/Image/leaf.jpg") no-repeat;
+            background-size: cover;
+        }
+
+        .wrapper {
+            width: 1100px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .content {
+            margin-top: 20px;
+        }
+
+            .content table {
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+
+                .content table th, td {
+                    position: relative;
+                    padding: 9px 15px;
+                    min-height: 20px;
+                    line-height: 20px;
+                    font-size: 14px;
+                    border: 1px solid #e2e2e2;
+                }
+
+            .content thead {
+                background: #eee;
+                opacity: 0.8;
+            }
+
+            .content tbody {
+                background: #fff;
+            }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="/Manage/Index">公告管理</a>->评论管理
+    </div>    
+    <div class="wrapper">
+        <div class="content" id="content">
+            <table id="comment-manage">
+                <colgroup>
+                    <col width="200">
+                    <col width="500">
+                    <col width="300">
+                    <col width="250">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>评论者</th>
+                        <th>评论内容</th>
+                        <th>评论时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+            {
+                        <tr>
+                            <td>@Html.Action("UserName", "Board", new { id = item.user_id })</td>
+                            <td>@item.content</td>
+                            <td>@item.time</td>
+                            <td align="center">
+                                <a href="/Manage/DelCom/@item.Id">删除</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+         </div>
+    </div>
+</body>
+</html>

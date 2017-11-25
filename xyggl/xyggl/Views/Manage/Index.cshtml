@@ -1,0 +1,128 @@
+﻿@model IEnumerable<xyggl.Models.Forum>
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <link href="~/CSS/froala_editor.min.css" rel="stylesheet" type="text/css">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="~/CSS/manage.css">
+    <script src="~/Scripts/manage.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <img src="@ViewBag.img" title="@ViewBag.name" onclick="window.location.href='/Login/Home?pos=1'">
+    </div>
+    <div class="wrapper">
+        <div class="group">
+            <ul id="group">
+                <li><a href="#">公告管理</a></li>
+                <li><a href="#">添加公告</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="wrapper">
+        <div class="content" id="content">
+            <table id="bulletin-manage">
+                <colgroup>
+                    <col width="100">
+                    <col width="400">
+                    <col width="150">
+                    <col width="200">
+                    <col width="150">
+                    <col width="150">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>公告标题</th>
+                        <th>发布者</th>
+                        <th>添加时间</th>
+                        <th>详情</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.forum_id</td>
+                            <td>@item.title</td>
+                            <td>@Html.Action("UserName", "Board", new { id = item.user_id })</td>
+                            <td>@item.time</td>
+                            <td align="center"><a href="/Board/Detail/@item.forum_id/1">公告详情</a></td>
+                            <td align="center">                                
+                                <a href="/Manage/Delete/@item.forum_id">删除</a>
+                                <a href="/Manage/CommentManage/@item.forum_id">评论管理</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <table>
+                <form action="/Manage/Add" method="post">
+                    <div class="add-bulletin" id="add-bulletin">
+                        <div class="main">
+                            <div class="title">
+                                <label>
+                                    <span>标题</span>
+                                    <input type="text" name= "title" placeholder="请输入标题">
+                                </label>
+                            </div>
+                            <section id="editor">
+                                <div id='edit' style="margin-top: 30px;">
+                                </div>
+                                <input id='con' type="hidden" name="content">
+                            </section>
+                            <div class="sort">
+                                <label>
+                                    <span>所在类别</span>
+                                    <select name="type_id">
+                                        <option selected>校园公告</option>
+                                        <option value="1">课外活动</option>
+                                        <option value="2">竞赛活动</option>                                        
+                                    </select>
+                                </label>
+                            </div>
+
+                            <input type="submit" class="button" id="sub" value="立即添加">
+                        </div>
+                    </div>
+                </form>
+            </table>           
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/froala_editor.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="../js/froala_editor_ie8.min.js"></script>
+    <![endif]-->
+    <script src="~/Scripts/plugins/tables.min.js"></script>
+    <script src="~/Scripts/plugins/lists.min.js"></script>
+    <script src="~/Scripts/plugins/colors.min.js"></script>
+    <script src="~/Scripts/plugins/media_manager.min.js"></script>
+    <script src="~/Scripts/js/plugins/font_family.min.js"></script>
+    <script src="~/Scripts/js/plugins/font_size.min.js"></script>
+    <script src="~/Scripts/js/plugins/block_styles.min.js"></script>
+    <script src="~/Scripts/js/plugins/video.min.js"></script>
+
+    <script>
+    $(function(){
+        $('#edit').editable({inlineMode: false, alwaysBlank: true, height: '200px'})
+        });
+        $('#sub').click(function () {
+            var content = $('#edit').find('.froala-element').html();
+            $('#con').prop('value', content);
+        });
+    </script>
+</body>
+</html>

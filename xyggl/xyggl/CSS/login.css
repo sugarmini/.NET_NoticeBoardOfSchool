@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:"微软雅黑";
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+body{
+    background: url("/Image/classroom.jpg") no-repeat;
+    background-size: cover;
+}
+.wrap{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    opacity: 0.3;
+}
+.form{
+    width: 425px;
+    height: 380px;
+    margin: 70px auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    opacity: 0.9;
+}
+.form h1{
+    padding-top: 25px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 20px;
+}
+.form h1 span{
+    font-size: 21px;
+    cursor: pointer;
+}
+.form h1 span:hover{
+    color: #0a8e6c;
+}
+.form-item{
+    width: 328px;
+    height: 50px;
+    line-height: 50px;
+    padding: 5px 60px;
+}
+.form-item label{
+    width: 50px;
+    margin-right: 10px;
+}
+.form-item .input{
+    width: 245px;
+    height: 30px;
+    font-size: 16px;
+}
+.form-item .sub{
+    background: #0a8e6c;
+    border: none;
+    color: #fff;
+    height: 35px;
+    cursor: pointer;
+}
+.form-item .sub:hover{
+    opacity: 0.8;
+}
+.auto{
+    position: relative;
+    left: 45px;
+}
+.forget{
+    position: relative;
+    left: 130px;
+    color: #000;
+}
+.forget:hover{
+    color: #0a8e6c;
+}
+.sub{
+    position: relative;
+    left: 45px;
+}
+.repwd{
+    position: relative;
+    left: -30px;
+}
+#repwd{
+    position: relative;
+    left: -32px;
+}
+.error{
+    position: relative;
+    top: -23px;
+    left: 48px;
+    font-size: 14px;
+    color: #0a8e6c;
+    display: none;
+}
+input[type=text],input[type=password]{
+    border: 2px solid #d5d5d5;
+    border-radius: 3px;
+    text-indent: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

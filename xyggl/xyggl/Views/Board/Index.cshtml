@@ -1,0 +1,74 @@
+﻿@model IEnumerable<xyggl.Models.Forum>
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>校园公告栏</title>
+    <link rel="stylesheet" href="~/CSS/bulletin.css">
+    <script src="~/Scripts/bulletin.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <img src="@ViewBag.img" title="@ViewBag.name" onclick="window.location.href='/Login/Home'">
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div class="menu" id="menu">
+            <div class="classify" id="classify">
+                <a href="#">校园公告</a>
+                <a href="#">最近通知</a>
+                <a href="#">课外活动</a>
+                <a href="#">竞赛活动</a>
+            </div>
+            <ul>
+                @foreach(var item in @Model){
+                    <li><a href="/Board/Detail/@item.forum_id">@item.title</a></li>
+                }               
+            </ul>
+            <ul>
+                @foreach (var item in @Model)
+                {
+                    if (item.time >= DateTime.Now.AddDays(-5))
+                    {
+                        <li><a href="/Board/Detail/@item.forum_id">@item.title</a></li>
+                    }
+                }
+            </ul>
+            <ul>
+              @foreach (var item in @Model)
+              {
+                  if (item.type_id == 1)
+                  {
+                    <li><a href="/Board/Detail/@item.forum_id">@item.title</a></li>
+                  }
+              }
+            
+            </ul>
+            <ul>
+                @foreach (var item in @Model)
+                {
+                    if (item.type_id == 2)
+                    {
+                        <li><a href="/Board/Detail/@item.forum_id">@item.title</a></li>
+                    }
+                } 
+            </ul>
+        </div>
+        <div class="slider">
+            <img src="" alt="" id="img">
+            <button id="prev"><</button>
+            <button id="next">></button>
+            <ul class="dot" id="dot"></ul>
+        </div>
+    </div>
+</body>
+</html>

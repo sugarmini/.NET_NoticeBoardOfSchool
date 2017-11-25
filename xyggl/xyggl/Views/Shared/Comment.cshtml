@@ -1,0 +1,40 @@
+﻿@model IEnumerable<xyggl.Models.Comment>
+
+
+    <div class="comment">
+        @foreach (var item in Model)
+{
+        <div class="line">
+            <div class="author">
+                <ul class="p_author">
+                    <li class="icon">
+                        <img src="@Html.Action("Img",new { id = item.user_id})" alt="">
+                    </li>
+                    <li class="p_name">
+                        <span class="user">@Html.Action("UserName",new { id = item.user_id})</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="content_main">
+                <div class="p_content">
+                    @Html.Raw(item.content)
+                </div>
+                <form action="/Board/AddToCom" method="post">
+                    <div class="core_reply add-com">
+                        <input type="hidden" name="content" class="recon" />
+                        <input type="hidden" name="forum_id" value="@item.forum_id" />
+                        <input type="hidden" name="comment_id" value="@item.Id" />
+                        <ul class="p_tail">
+                            <li><span>@item.time</span></li>
+                            <li><span class="reply">回复</span></li>
+                        </ul>                         
+                    </div>                   
+                </form>
+                @Html.Action("ReComment", new { id = item.Id })
+        </div>
+        </div>
+}
+    </div>
+
+
+

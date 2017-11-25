@@ -1,0 +1,77 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑"
+}
+body {
+    padding: 0 50px;
+    background: url("/Image/leaf.jpg") no-repeat;
+    background-size: cover;
+}
+.group {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+}
+.group a {
+    color: #0a8e6c;
+}
+
+    .group a:hover {
+        text-decoration-line: underline;
+    }
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+.notice {
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+    font-size: 15px;
+    background: #fff;
+    opacity: 0.8;
+}
+.title {
+    border: 3px solid #ccc;
+    text-align: center;
+    padding: 10px;
+}
+
+.title input {
+    width:1100px;
+    text-align:center;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.title span {
+    margin-right: 15px;
+}
+
+.content {
+    background: #fff;
+    opacity: 0.8;
+    padding: 5px 15px;
+}
+.edit {
+    padding: 0 15px;
+    background: #fff;
+    opacity: 0.8;
+}
+
+    .edit input {
+        width: 125px;
+        height: 35px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+        background: #0a8e6c;
+        color: #fff;
+        margin: 10px 0 50px 0;
+    }
+
+.edit input:hover {
+    opacity: 0.8;
+}
+
